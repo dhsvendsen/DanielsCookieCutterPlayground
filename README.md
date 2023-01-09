@@ -1,3 +1,4 @@
+[![pytest test](https://github.com/dhsvendsen/DanielsCookieCutterPlayground/actions/workflows/tests.yml/badge.svg)](https://github.com/dhsvendsen/DanielsCookieCutterPlayground/actions/workflows/tests.yml)
 [![isort test](https://github.com/dhsvendsen/DanielsCookieCutterPlayground/actions/workflows/isort.yml/badge.svg)](https://github.com/dhsvendsen/DanielsCookieCutterPlayground/actions/workflows/isort.yml)
 [![flake8 test](https://github.com/dhsvendsen/DanielsCookieCutterPlayground/actions/workflows/flake8.yml/badge.svg)](https://github.com/dhsvendsen/DanielsCookieCutterPlayground/actions/workflows/flake8.yml)
 
