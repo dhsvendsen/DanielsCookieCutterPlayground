@@ -8,6 +8,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
+    - uses: iterative/setup-dvc@v1
+    - name: Get data
+      run: dvc pull
+      env:
+        GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
+
     - uses: actions/checkout@v2
     - name: Build the Docker image
       run: |
