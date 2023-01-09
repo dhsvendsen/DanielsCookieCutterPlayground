@@ -1,7 +1,7 @@
-#import numpy as np
-#import torch
-#from src.models.model import ConvNet
-#from tests import _PATH_DATA
+# import numpy as np
+# import torch
+# from src.models.model import ConvNet
+# from tests import _PATH_DATA
 
 
 # In the detox project we use a pytorch ligthning module, which we can use
