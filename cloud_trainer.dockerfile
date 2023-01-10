@@ -6,6 +6,7 @@ RUN apt update && \
     apt install --no-install-recommends -y build-essential gcc && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
+
 # Copy essential parts of application
 COPY requirements.txt requirements.txt
 COPY setup.py setup.py
@@ -16,6 +17,10 @@ COPY reports/ reports/
 COPY data.dvc data.dvc
 COPY .dvc/config .dvc/config
 COPY .git/ .git/
+
+RUN apt-get update && apt-get install -y git
+RUN git config user.email "d.h.svendsen@gmail.com"
+RUN git config user.name "dhsvendsen"
 
 # Set work dir in our container and add commands that install dependencies
 WORKDIR /
