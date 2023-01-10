@@ -7,21 +7,11 @@ RUN apt update && \
     apt clean && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y git
+WORKDIR /DanielsCookieCutterPlayground
 
 # Copy essential parts of application
-COPY requirements.txt requirements.txt
-COPY setup.py setup.py
-COPY src/ src/
-COPY models/ models/
-COPY reports/ reports/
-# Get dvc convfig to do dvc pull
-COPY data.dvc data.dvc
-COPY .dvc .dvc
-COPY .git/ .git/
+ADD requirements.txt
 
-
-# Set work dir in our container and add commands that install dependencies
-WORKDIR /
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc 'dvc[gs]'
@@ -30,6 +20,17 @@ WORKDIR /root
 RUN git config user.email "d.h.svendsen@gmail.com"
 RUN git config user.name "dhsvendsen"
 RUN dvc pull
+
+COPY setup.py setup.py
+COPY src/ src/
+COPY models/ models/
+COPY reports/ reports/
+# Get dvc convfig to do dvc pull
+COPY data.dvc data.dvc
+COPY .dvc/config .dvc/config
+COPY .git/ .git/
+
+
 # --no-cache-dir flag is used to ensure that the packages are downloaded from
 # the internet and not installed from a locally cached copy.
 
