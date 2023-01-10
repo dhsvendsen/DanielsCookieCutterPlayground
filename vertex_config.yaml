@@ -1,0 +1,7 @@
+# config_cpu.yaml
+workerPoolSpecs:
+   machineSpec:
+      machineType: e2-standard-4
+   replicaCount: 1
+   containerSpec:
+      imageUri: gcr.io/dev-lane-374308/gcp_vm_tester
