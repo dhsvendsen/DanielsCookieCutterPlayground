@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/dev-lane-374308/s6-mlops-pytorch', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/dev-lane-374308/s6-mlops-pytorch']
