@@ -31,7 +31,8 @@ COPY .git/ .git/
 # the internet and not installed from a locally cached copy.
 
 # Set entrypoint
-ENTRYPOINT ["./dockershellscipt.sh"]
+COPY dockershellscript.sh dockershellscript.sh
+ENTRYPOINT ["./dockershellscript.sh"]
 #RUN dvc pull
 #ENTRYPOINT ["python", "-u", "src/models/train_model.py", "train"]
 # "u" here makes sure that any output from our script e.g. any print(...)
