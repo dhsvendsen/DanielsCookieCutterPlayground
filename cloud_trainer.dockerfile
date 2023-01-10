@@ -19,14 +19,16 @@ COPY data.dvc data.dvc
 COPY .dvc/config .dvc/config
 COPY .git/ .git/
 
-WORKDIR /DanielsCookieCutterPlayground
-RUN git config user.email "d.h.svendsen@gmail.com"
-RUN git config user.name "dhsvendsen"
 
 # Set work dir in our container and add commands that install dependencies
+WORKDIR /
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc 'dvc[gs]'
+
+WORKDIR /DanielsCookieCutterPlayground
+RUN git config user.email "d.h.svendsen@gmail.com"
+RUN git config user.name "dhsvendsen"
 RUN dvc pull
 # --no-cache-dir flag is used to ensure that the packages are downloaded from
 # the internet and not installed from a locally cached copy.
