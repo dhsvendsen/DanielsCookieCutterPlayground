@@ -15,6 +15,7 @@ COPY reports/ reports/
 # Get dvc convfig to do dvc pull
 COPY data.dvc data.dvc
 COPY .dvc/config .dvc/config
+COPY .git/ .git/
 
 # Set work dir in our container and add commands that install dependencies
 WORKDIR /
