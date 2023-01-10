@@ -18,7 +18,6 @@ COPY data.dvc data.dvc
 COPY .dvc/config .dvc/config
 COPY .git/ .git/
 
-RUN apt-get update && apt-get install -y git
 WORKDIR /DanielsCookieCutterPlayground
 RUN git config user.email "d.h.svendsen@gmail.com"
 RUN git config user.name "dhsvendsen"
