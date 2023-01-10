@@ -1,5 +1,5 @@
 # Base image
-FROM python:3.8-slim
+FROM python:3.9-slim
 
 # install python
 RUN apt update && \
@@ -26,7 +26,7 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc 'dvc[gs]'
 
-WORKDIR /DanielsCookieCutterPlayground
+WORKDIR /root
 RUN git config user.email "d.h.svendsen@gmail.com"
 RUN git config user.name "dhsvendsen"
 RUN dvc pull
