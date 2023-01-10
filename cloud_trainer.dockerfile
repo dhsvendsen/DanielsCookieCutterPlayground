@@ -23,7 +23,6 @@ COPY .git/config .git/config
 COPY .git/ .git/
 
 
-RUN dvc pull
 # WORKDIR /root
 # RUN git config user.email "d.h.svendsen@gmail.com"
 # RUN git config user.name "dhsvendsen"
@@ -32,6 +31,8 @@ RUN dvc pull
 # the internet and not installed from a locally cached copy.
 
 # Set entrypoint
-ENTRYPOINT ["python", "-u", "src/models/train_model.py", "train"]
+ENTRYPOINT ["./dockershellscipt.sh"]
+#RUN dvc pull
+#ENTRYPOINT ["python", "-u", "src/models/train_model.py", "train"]
 # "u" here makes sure that any output from our script e.g. any print(...)
 # statements gets redirected to our terminal. If not included you would need to use docker logs to inspect your run.
