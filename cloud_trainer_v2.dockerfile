@@ -10,16 +10,12 @@ RUN apt-get update && apt-get install -y git
 WORKDIR /DanielsCookieCutterPlayground
 
 # Copy essential parts of application
-ADD requirements.txt
-
+ADD requirements.txt .
+# install requirements
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc 'dvc[gs]'
 
-WORKDIR /root
-RUN git config user.email "d.h.svendsen@gmail.com"
-RUN git config user.name "dhsvendsen"
-RUN dvc pull
 
 COPY setup.py setup.py
 COPY src/ src/
@@ -31,6 +27,9 @@ COPY .dvc/config .dvc/config
 COPY .git/ .git/
 
 
+RUN git config user.email "d.h.svendsen@gmail.com"
+RUN git config user.name "dhsvendsen"
+RUN dvc pull
 # --no-cache-dir flag is used to ensure that the packages are downloaded from
 # the internet and not installed from a locally cached copy.
 
