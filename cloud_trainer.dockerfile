@@ -20,7 +20,7 @@ COPY .dvc/config .dvc/config
 WORKDIR /
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt --no-cache-dir
-RUN pip install 'dvc[gs]'
+RUN pip install dvc 'dvc[gs]'
 RUN dvc pull
 # --no-cache-dir flag is used to ensure that the packages are downloaded from
 # the internet and not installed from a locally cached copy.
