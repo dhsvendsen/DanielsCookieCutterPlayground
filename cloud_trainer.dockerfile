@@ -26,9 +26,9 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc 'dvc[gs]'
 
-WORKDIR /root
-RUN git config user.email "d.h.svendsen@gmail.com"
-RUN git config user.name "dhsvendsen"
+# WORKDIR /root
+# RUN git config user.email "d.h.svendsen@gmail.com"
+# RUN git config user.name "dhsvendsen"
 RUN dvc pull
 # --no-cache-dir flag is used to ensure that the packages are downloaded from
 # the internet and not installed from a locally cached copy.
