@@ -15,7 +15,7 @@ COPY src/ src/
 COPY models/ models/
 COPY reports/ reports/
 # Get dvc convfig to do dvc pull
-#COPY data.dvc data.dvc
+COPY data.dvc data.dvc
 #COPY .dvc .dvc
 #COPY .git/ .git/
 
@@ -23,7 +23,7 @@ COPY reports/ reports/
 # Set work dir in our container and add commands that install dependencies
 WORKDIR /
 RUN pip install --upgrade pip
-#RUN pip install -r requirements.txt --no-cache-dir
+RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc 'dvc[gs]'
 
 # WORKDIR /root
