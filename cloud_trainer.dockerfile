@@ -15,9 +15,9 @@ COPY src/ src/
 COPY models/ models/
 COPY reports/ reports/
 # Get dvc convfig to do dvc pull
-COPY data.dvc data.dvc
-COPY .dvc .dvc
-COPY .git/ .git/
+#COPY data.dvc data.dvc
+#COPY .dvc .dvc
+#COPY .git/ .git/
 
 
 # Set work dir in our container and add commands that install dependencies
@@ -29,7 +29,8 @@ RUN pip install dvc 'dvc[gs]'
 # WORKDIR /root
 # RUN git config user.email "d.h.svendsen@gmail.com"
 # RUN git config user.name "dhsvendsen"
- RUN dvc pull
+RUN dvc remote add -d myremote gs://s6-mlops-bucket-1/
+RUN dvc pull
 # --no-cache-dir flag is used to ensure that the packages are downloaded from
 # the internet and not installed from a locally cached copy.
 
