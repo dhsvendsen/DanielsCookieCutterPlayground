@@ -23,12 +23,13 @@ COPY reports/ reports/
 # Set work dir in our container and add commands that install dependencies
 WORKDIR /
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt --no-cache-dir
+#RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc 'dvc[gs]'
 
 # WORKDIR /root
 # RUN git config user.email "d.h.svendsen@gmail.com"
 # RUN git config user.name "dhsvendsen"
+RUN dvc init --no-scm
 RUN dvc remote add -d myremote gs://s6-mlops-bucket-1/
 RUN dvc pull
 # --no-cache-dir flag is used to ensure that the packages are downloaded from
